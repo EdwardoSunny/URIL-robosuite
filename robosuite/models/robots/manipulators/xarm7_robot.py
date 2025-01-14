@@ -4,9 +4,9 @@ from robosuite.models.robots.manipulators.manipulator_model import ManipulatorMo
 from robosuite.utils.mjcf_utils import xml_path_completion
 
 
-class Panda(ManipulatorModel):
+class XArm7(ManipulatorModel):
     """
-    Panda is a sensitive single-arm robot designed by Franka.
+    XArm7 is a sensitive single-arm 7 DOF robot designed by UFactory.
 
     Args:
         idn (int or str): Number or some other unique identification string for this robot instance
@@ -15,7 +15,7 @@ class Panda(ManipulatorModel):
     arms = ["right"]
 
     def __init__(self, idn=0):
-        super().__init__(xml_path_completion("robots/panda/robot.xml"), idn=idn)
+        super().__init__(xml_path_completion("robots/xarm7/robot.xml"), idn=idn)
 
         # Set joint damping
         self.set_joint_attribute(attrib="damping", values=np.array((0.1, 0.1, 0.1, 0.1, 0.1, 0.01, 0.01)))
@@ -30,11 +30,16 @@ class Panda(ManipulatorModel):
 
     @property
     def default_controller_config(self):
-        return {"right": "default_panda"}
+        return {"right": "default_xarm7"}
 
     @property
     def init_qpos(self):
-        return np.array([0, np.pi / 16.0, 0.00, -np.pi / 2.0 - np.pi / 3.0, 0.00, np.pi - 0.2, np.pi / 4])  
+        # return np.array([0.0, 0.0, 0.0, 0.39 * np.pi, 0.0, 0.39 * np.pi, 0.0])
+        return np.array([0.0, 0.0, 0.0, 0.39 * np.pi, 0.0, 0.39 * np.pi, 0.0])
+
+    # @property
+    # def init_qpos(self):
+    #     return np.array([0, np.pi / 16.0, 0.00, -np.pi / 2.0 - np.pi / 3.0, 0.00, np.pi - 0.2, np.pi / 4])
 
     @property
     def base_xpos_offset(self):
