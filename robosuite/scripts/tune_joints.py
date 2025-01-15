@@ -293,7 +293,7 @@ if __name__ == "__main__":
         use_camera_obs=False,
         control_freq=20,
         render_camera=None,
-        controller_configs=controller_config,
+        # controller_configs=controller_config,
         initialization_noise=None,
     )
     env.reset()

@@ -30,16 +30,13 @@ class XArm7(ManipulatorModel):
 
     @property
     def default_controller_config(self):
+        print("LOADED CONFIG")
         return {"right": "default_xarm7"}
 
     @property
     def init_qpos(self):
         # return np.array([0.0, 0.0, 0.0, 0.39 * np.pi, 0.0, 0.39 * np.pi, 0.0])
         return np.array([0.0, 0.0, 0.0, 0.39 * np.pi, 0.0, 0.39 * np.pi, 0.0])
-
-    # @property
-    # def init_qpos(self):
-    #     return np.array([0, np.pi / 16.0, 0.00, -np.pi / 2.0 - np.pi / 3.0, 0.00, np.pi - 0.2, np.pi / 4])
 
     @property
     def base_xpos_offset(self):
