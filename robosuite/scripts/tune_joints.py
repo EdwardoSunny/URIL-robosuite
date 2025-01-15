@@ -293,7 +293,7 @@ if __name__ == "__main__":
         use_camera_obs=False,
         control_freq=20,
         render_camera=None,
-        # controller_configs=controller_config,
+        controller_configs=controller_config,
         initialization_noise=None,
     )
     env.reset()
@@ -315,5 +315,5 @@ if __name__ == "__main__":
     while True:
         action = np.zeros(env.action_dim)
         obs, reward, done, _ = env.step(action)
-        print(get_joint_positions(obs["robot0_joint_pos_cos"], obs["robot0_joint_pos_sin"]))
+        # print(get_joint_positions(obs["robot0_joint_pos_cos"], obs["robot0_joint_pos_sin"]))
         env.render()

@@ -30,7 +30,6 @@ class XArm7(ManipulatorModel):
 
     @property
     def default_controller_config(self):
-        print("LOADED CONFIG")
         return {"right": "default_xarm7"}
 
     @property
