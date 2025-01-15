@@ -40,3 +40,16 @@ for i in range(1000):
     obs, reward, done, info = env.step(action)  # take action in the environment
     env.render()  # render on display
 #+end_src
+
+** Customizations
+*** Custom Camera Observation Angles
+Sometimes, you may need to add custom angles not from the given list of camera in an environment. 
+
+To add your own custom camera angles, go to =robosuite/models/assets/arenas/=. This folder contains all the arena environment settings for any given task, which also contains a given arena's camera configurations. 
+For example, for the common table tap setting, edit =table_arena.xml=. At the bottom of the file are the camera definitions, you can add your own, like the following for a mirrored side camera:
+
+#+begin_src xml
+<camera mode="fixed" name="sideviewmirrored" pos="-0.05651774593317116 -1.2761224129427358 1.4879572214102434" quat="0.843 0.537 0.0 0.0" />
+#+end_src
+
+The coordinate system is +y to the right of the front view, +x towards the front view camera, +z upwards. The rotation is defined by a quaternion.
